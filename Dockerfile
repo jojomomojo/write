@@ -1,20 +1,16 @@
-FROM letfn/container AS download
+FROM letfn/python
+
+USER root
+
+RUN apt update && apt install -y curl
 
 ARG _WRITEFREELY_VERSION=0.12.0
 
-WORKDIR /tmp
-
-RUN curl -sSL -o write.tar.gz https://github.com/writeas/writefreely/releases/download/v${_WRITEFREELY_VERSION}/writefreely_${_WRITEFREELY_VERSION}_linux_amd64.tar.gz \
-    && tar xvfz write.tar.gz
-
-RUN tar xfz write.tar.gz
-
-FROM letfn/python
-
-COPY --from=download /tmp/writefreely /usr/local/writefreely
-
-USER root
-RUN chown app:app /usr/local/writefreely
+RUN cd /usr/local \
+    && curl -sSL -o write.tar.gz https://github.com/writeas/writefreely/releases/download/v${_WRITEFREELY_VERSION}/writefreely_${_WRITEFREELY_VERSION}_linux_amd64.tar.gz \
+    && tar xvfz write.tar.gz \
+    && rm -f write.tar.gz \
+    && chown -R app:app /usr/local/writefreely
 
 USER app
 
