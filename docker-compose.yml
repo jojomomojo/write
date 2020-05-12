@@ -5,3 +5,11 @@ services:
     image: writefreely
     volumes:
       - ./etc/data:/app/src/write
+  cloudflared:
+    image: letfn/cloudflared
+    restart: always
+    volumes:
+      - ${HOME}/.cloudflared:/etc/cloudflared
+    environment:
+      - TUNNEL_URL=https://traefik.whoa.bot
+      - TUNNEL_HOSTNAME=write.defn.sh
