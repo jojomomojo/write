@@ -4,12 +4,9 @@ ARG _WRITEFREELY_VERSION=0.12.0
 
 WORKDIR /tmp
 
-#RUN curl -sSL -o write.tar.gz https://github.com/writeas/writefreely/releases/download/v${_WRITEFREELY_VERSION}/writefreely_${_WRITEFREELY_VERSION}_linux_amd64.tar.gz \
-#    && tar xvfz write.tar.gz \
-#    && rm -f write.tar.gz \
-#    && chmod 755 writefreely
+RUN curl -sSL -o write.tar.gz https://github.com/writeas/writefreely/releases/download/v${_WRITEFREELY_VERSION}/writefreely_${_WRITEFREELY_VERSION}_linux_amd64.tar.gz \
+    && tar xvfz write.tar.gz
 
-COPY write.tar.gz write.tar.gz
 RUN tar xfz write.tar.gz
 
 FROM letfn/python
