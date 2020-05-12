@@ -22,4 +22,5 @@ logs:
 	docker-compose logs -f
 	
 config:
-	docker-compose run --rm write -w /appr/src/write write bash
+	docker-compose exec -w /app/src/write write touch config.ini
+	docker-compose exec -w /app/src/write write /usr/local/writefreely/writefreely config start

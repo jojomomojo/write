@@ -4,7 +4,7 @@ services:
     build: .
     image: writefreely
     volumes:
-      - ./etc/data:/app/src/write
+      - ./etc/write:/app/src/write
   cloudflared:
     image: letfn/cloudflared
     restart: always
