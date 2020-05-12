@@ -17,6 +17,9 @@ recreate:
 recycle:
 	$(MAKE) build
 	$(MAKE) recreate
+
+logs:
+	docker-compose logs -f
 	
 config:
 	docker-compose run --rm write -w /appr/src/write write bash

@@ -25,4 +25,4 @@ RUN rmdir /usr/local/writefreely/keys
 
 COPY service /service
 
-ENTRYPOINT [ "/tini", "--", "bash", "/service" ]
+ENTRYPOINT [ "/tini", "--", "/service" ]
