@@ -1,0 +1,15 @@
+ #!/bin/bash
+
+function main {
+  set -exfu
+
+  if [[ "$#" == 0 ]]; then
+    cd /usr/local/writefreely
+    (set +f; ln -nfs /app/src/write/* .)
+    exec ./writefreely
+  else
+    exec "$@"
+  fi
+}
+
+main "$@"

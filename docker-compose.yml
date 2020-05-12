@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  write:
+    build: .
+    image: writefreely
+    volumes:
+      - ./etc/data:/app/src/write
