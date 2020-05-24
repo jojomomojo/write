@@ -3,7 +3,7 @@ services:
   write:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.write.rule=Host(`write.whoa.bot`)"
+      - "traefik.http.routers.write.rule=Host(`write.defn.sh`)"
       - "traefik.http.services.write.loadbalancer.server.port=8080"
 
 networks:

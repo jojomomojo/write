@@ -5,6 +5,3 @@ services:
     image: writefreely
     volumes:
       - ./etc/write:/app/src/write
-    labels:
-      - "hera.hostname=write.defn.sh"
-      - "hera.port=8080"
